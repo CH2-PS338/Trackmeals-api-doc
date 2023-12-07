@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>API DOC</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="#">Trackmeals</a></li>
+            <ul>
+              <li><a href="#endpoint">Endpoint</a></li>
+              <ul>
+                <li>
+                  <a href="#user">User</a>
+                  <ul>
+                    <li><a href="#register">POST Register</a></li>
+                    <li><a href="#login">POST Login</a></li>
+                    <li><a href="#token">GET Token</a></li>
+                    <li><a href="#logout">DELETE Logout</a></li>
+                    <li><a href="#uploadfoto">POST UploadFoto</a></li>
+                    <li><a href="#forgotpassword">POST ForgotPassword</a></li>
+                    <li><a href="#changepassword">POST ChangePassword</a></li>
+                  </ul>
+                </li>
+                <li><a href="#meals">Meals</a></li>
+                <ul>
+                  <li><a href="#meal">GET All user Meals</a></li>
+                  <li><a href="#addmeal">POST Meals</a></li>
+                  <li><a href="#deletemeal">Delete Meals</a></li>
+                  <li><a href="#calculatemeal">GET Calculate Day Meals</a></li>
+                </ul>
+                <!-- <li><a href="">Nutrisions</a></li>
+                <ul>
+                  <li><a href="">GET All Nutrisions</a></li>
+                  <li><a href="">POST Nutrisions</a></li>
+                </ul>
+                <li><a href="">FactHealtsa</a></li>
+                <ul>
+                  <li><a href="">GET All FactHealtsa</a></li>
+                  <li><a href="">POST FactHealtsa</a></li>
+                </ul>
+              </ul> -->
+            </ul>
+          </ul>
+        </nav>
+      </div>
+      <div class="main">
+        <h1 id="#">Trackmeals API Documentation</h1>
+        <div class="desc">API untuk capstone!</div>
+        <h1 id="endpoint">Endpoint</h1>
+        <div class="endpoint">http://localhost:5000/api</div>
+        <h2 id="user">User</h2>
+        <h3 id="register">POST Register</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/register</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>name as <span> string</span></li>
+            <li>email as <span> string</span>, must be unique</li>
+            <li>password as <span> string</span></li>
+            <li>confirm_password as <span> string</span></li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>             
+                {
+                  "error": false,
+                  "message": "User created successfully",
+                  "data": {
+                    "name": "John rocker",
+                    "email": "johnrocker@gmail.com"
+                  }
+                }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="login">POST Login</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/login</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>email as <span> string</span></li>
+            <li>password as <span> string</span></li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+                eyJ1c2VySWQiOjMsIm5hbWUiOiJKb2huIHJvY2tlciIsImVtYWlsI
+                joiam9obnJvY2tlckBnbWFpbC5jb20iLCJpYXQiOjE3MDE5MTYzMzQsImV4cCI6MTcwMTkxNjM2NH0.
+                SgNZepZThYmmT6C9Jh9ar58h03hlGxzn6LjjFEt3NZQ"
+              }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="token">GET Token</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/token</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+                eyJ1c2VySWQiOjMsIm5hbWUiOiJKb2huIHJvY2tlciIsImVtYWlsI
+                joiam9obnJvY2tlckBnbWFpbC5jb20iLCJpYXQiOjE3MDE5MTY0MD
+                YsImV4cCI6MTcwMjAwMjgwNn0.NuRcti8LODm38WpLznESo9fQ7E1MJWtQ5LqkgyBiJ3o"
+              }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="logout">DELETE Logout</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/logout</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>DELETE</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+           <pre>
+            {
+              "error": false,
+              "message": "Logout success!"
+            }
+           </pre>
+          </div>
+        </ul>
+        <h3 id="uploadfoto">POST Upload Foto</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/uploadfoto/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>file as <span> file</span></li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+           <pre>
+            {
+              "error": false,
+              "message": "Image uploaded.",
+              "data": {
+                  "userId": "1",
+                  "profilePic": "https://storage.googleapis.com/profile-image-user-trackmeals/1701918566525.png"
+              }
+          }
+           </pre>
+          </div>
+        </ul>
+        <h3 id="forgotpassword">POST Forgot Password</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/forgotpassword</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>email as <span> string</span></li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>                    
+              {
+                "error": false,
+                "message": "Password has been reset",
+                "data": {
+                  "email": "johnjay@gmail.com",
+                  "password": "u5t5ammp"
+                }
+              }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="changepassword">POST Change Password</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/changepassword/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>email as <span> string</span></li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "message": "Password has been changed",
+                "data": {
+                  "userId": "2"
+                }
+              }
+            </pre>
+          </div>
+        </ul>
+        <h2 id="meals">Meals</h2>
+        <h3 id="meal">GET Get All User Meals</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/meals/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+           <pre>
+            {
+              "error": false,
+              "message": "Meals for userId 1",
+              "data": [
+                {
+                  "mealId": 3,
+                  "meals_name": "Mie Tek tek"
+                },
+                {
+                  "mealId": 4,
+                  "meals_name": "Mie Tek tek"
+                }
+              ]
+            }
+           </pre>
+          </div>
+        </ul>
+        <h3 id="addmeal">POST Add Meal</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/addmeal/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>POST</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>meals_name as <span> string</span></li>
+            <li>calories as <span> string</span></li>
+            <li>proteins as <span> string</span></li>
+            <li>carbs as <span> string</span></li>
+            <li>fats as <span> string</span></li>
+            <li>minerals as <span> string</span></li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "message": "Meal added successfully by2",
+                "data": {
+                  "userId": "2",
+                  "meals": {
+                    "mealId": 5,
+                    "meals_name": "Mie Tek tek",
+                    "calories": "222",
+                    "carbs": "22",
+                    "proteins": "22",
+                    "fats": "22",
+                    "minerals": "22",
+                    "updatedAt": "2023-12-07T03:13:47.130Z",
+                    "createdAt": "2023-12-07T03:13:47.130Z"
+                  }
+                }
+              }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="deletemeal">DELETE Meals</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/meal/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>DELETE</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>mealId as <span> integer</span></li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "message": "Meal deleted successfully",
+                "data": {
+                  "meal": {
+                    "mealId": 4,
+                    "meals_name": "Mie Tek tek",
+                    "calories": 222,
+                    "carbs": 22,
+                    "proteins": 22,
+                    "fats": 22,
+                    "minerals": 22,
+                    "userId": 1,
+                    "createdAt": "2023-12-07T01:36:37.000Z",
+                    "updatedAt": "2023-12-07T01:36:37.000Z"
+                  }
+                }
+              }
+            </pre>
+          </div>
+        </ul>
+        <h3 id="calculatemeal">GET Calculate Day Meals</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>meals/calculate/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+           <pre>
+            {
+              "error": false,
+              "message": "Meals for userId 1",
+              "data": {
+                "NutrisionForToday": {
+                  "calories": 222,
+                  "carbs": 22,
+                  "proteins": 22,
+                  "fats": 22,
+                  "minerals": 22
+                }
+              }
+            }
+           </pre>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

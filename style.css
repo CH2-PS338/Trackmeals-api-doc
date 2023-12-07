@@ -1,0 +1,93 @@
+* {
+    font-family: roboto;
+    font-size: 14px;
+    margin: 0;
+}
+
+body {
+    background-color: #ccc;
+    font-family: 'Courier Prime', monospace;
+}
+
+span {
+    color: rgb(0, 0, 0);
+    background-color: #ccc;
+    padding: 2px 4px 2px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.main {
+    background-color: #fff;
+    flex: 5;
+    height: auto;
+}
+
+.sidebar {
+    background-color: #fff;
+    flex: 1;
+    height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    border-right: #000;
+    border-width: 2px;
+    border: #000;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.sidebar ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar ul li a {
+    color: #000;
+    font-size: 12px;
+}
+
+.desc {
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 40px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.response-json {
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+.endpoint {
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
