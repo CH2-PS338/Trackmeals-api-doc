@@ -9,9 +9,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>API DOC</title>
   </head>
@@ -47,13 +50,13 @@
                 <ul>
                   <li><a href="">GET All Nutrisions</a></li>
                   <li><a href="">POST Nutrisions</a></li>
-                </ul>
-                <li><a href="">FactHealtsa</a></li>
+                </ul> -->
+                <li><a href="facthealths">FactHealts</a></li>
                 <ul>
-                  <li><a href="">GET All FactHealtsa</a></li>
-                  <li><a href="">POST FactHealtsa</a></li>
+                  <li><a href="getfacthealths">GET FactHealtsa</a></li>
+                  <!-- <li><a href="">POST FactHealtsa</a></li> -->
                 </ul>
-              </ul> -->
+              </ul>
             </ul>
           </ul>
         </nav>
@@ -83,7 +86,8 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-            <pre>             
+            <pre>
+             
                 {
                   "error": false,
                   "message": "User created successfully",
@@ -158,12 +162,13 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-           <pre>
+            <pre>
             {
               "error": false,
               "message": "Logout success!"
             }
-           </pre>
+           </pre
+            >
           </div>
         </ul>
         <h3 id="uploadfoto">POST Upload Foto</h3>
@@ -186,7 +191,7 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-           <pre>
+            <pre>
             {
               "error": false,
               "message": "Image uploaded.",
@@ -195,7 +200,8 @@
                   "profilePic": "https://storage.googleapis.com/profile-image-user-trackmeals/1701918566525.png"
               }
           }
-           </pre>
+           </pre
+            >
           </div>
         </ul>
         <h3 id="forgotpassword">POST Forgot Password</h3>
@@ -214,7 +220,8 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-            <pre>                    
+            <pre>
+                    
               {
                 "error": false,
                 "message": "Password has been reset",
@@ -273,7 +280,7 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-           <pre>
+            <pre>
             {
               "error": false,
               "message": "Meals for userId 1",
@@ -288,7 +295,8 @@
                 }
               ]
             }
-           </pre>
+           </pre
+            >
           </div>
         </ul>
         <h3 id="addmeal">POST Add Meal</h3>
@@ -379,11 +387,11 @@
             </pre>
           </div>
         </ul>
-        <h3 id="calculatemeal">GET Calculate Day Meals</h3>
+        <h3 id="calculatemeal">GET Dashboard Nutrisions</h3>
         <ul>
           <li>URL</li>
           <ul>
-            <li>meals/calculate/:id</li>
+            <li>dashboard/:id</li>
           </ul>
           <li>Method</li>
           <ul>
@@ -395,7 +403,7 @@
           </ul>
           <li>Response</li>
           <div class="response-json">
-           <pre>
+            <pre>
             {
               "error": false,
               "message": "Meals for userId 1",
@@ -409,7 +417,42 @@
                 }
               }
             }
-           </pre>
+           </pre
+            >
+          </div>
+        </ul>
+        <h2 id="facthealths">Fact Healths</h2>
+        <h3 id="getfacthealths">GET Fact Healths</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>dashboard/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "message": "Random fact fetched successfully",
+                "data": [
+                  {
+                    "factId": 2,
+                    "fact": "Regular Health Check-ups are Essential: Regular medical check-ups and screenings can help detect potential health issues early,
+                    allowing for timely intervention and prevention.",
+                    "source": "https://www.heart.org/en/health-topics/consumer-healthcare/doctor-appointments-questions-to-ask-your-doctor"
+                  }
+                ]
+              }
+           </pre
+            >
           </div>
         </ul>
       </div>
