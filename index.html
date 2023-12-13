@@ -34,7 +34,8 @@
                     <li><a href="#login">POST Login</a></li>
                     <li><a href="#token">GET Token</a></li>
                     <li><a href="#logout">DELETE Logout</a></li>
-                    <li><a href="#uploadfoto">POST UploadFoto</a></li>
+                    <li><a href="#uploadfoto">PUT UploadFoto</a></li>
+                    <li><a href="#update">PUT Update Profile</a></li>
                     <li><a href="#forgotpassword">POST ForgotPassword</a></li>
                     <li><a href="#changepassword">POST ChangePassword</a></li>
                   </ul>
@@ -53,7 +54,7 @@
                 </ul> -->
                 <li><a href="facthealths">FactHealts</a></li>
                 <ul>
-                  <li><a href="getfacthealths">GET FactHealtsa</a></li>
+                  <li><a href="getfacthealths">GET FactHealts</a></li>
                   <!-- <li><a href="">POST FactHealtsa</a></li> -->
                 </ul>
               </ul>
@@ -171,7 +172,7 @@
             >
           </div>
         </ul>
-        <h3 id="uploadfoto">POST Upload Foto</h3>
+        <h3 id="uploadfoto">PUT Upload Foto</h3>
         <ul>
           <li>URL</li>
           <ul>
@@ -179,7 +180,7 @@
           </ul>
           <li>Method</li>
           <ul>
-            <li>POST</li>
+            <li>PUT</li>
           </ul>
           <li>Request Body</li>
           <ul>
@@ -200,8 +201,43 @@
                   "profilePic": "https://storage.googleapis.com/profile-image-user-trackmeals/1701918566525.png"
               }
           }
-           </pre
-            >
+            </pre>
+          </div>
+        </ul>
+        <h3 id="updateprofile">POST Update Profile</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/updateprofile/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>PUT</li>
+          </ul>
+          <li>Request Body</li>
+          <ul>
+            <li>name as <span> string</span></li>
+            <li>age as <span> string</span></li>
+            <li>gender as <span> string</span></li>
+            <li>email as <span> string</span>, must be unique</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "message": "Profile has been updated",
+                "data": {
+                  "name": "John hebat",
+                  "age": "22",
+                  "gender": "L"
+                }
+              }
+            </pre>
           </div>
         </ul>
         <h3 id="forgotpassword">POST Forgot Password</h3>
@@ -286,17 +322,13 @@
               "message": "Meals for userId 1",
               "data": [
                 {
-                  "mealId": 3,
-                  "meals_name": "Mie Tek tek"
-                },
-                {
-                  "mealId": 4,
-                  "meals_name": "Mie Tek tek"
+                  "mealId": 1,
+                  "meals_name": "kacang",
+                  "createdAt": "2023-12-13T18:17:01.000Z"
                 }
               ]
             }
-           </pre
-            >
+            </pre>
           </div>
         </ul>
         <h3 id="addmeal">POST Add Meal</h3>
@@ -311,12 +343,7 @@
           </ul>
           <li>Request Body</li>
           <ul>
-            <li>meals_name as <span> string</span></li>
-            <li>calories as <span> string</span></li>
-            <li>proteins as <span> string</span></li>
-            <li>carbs as <span> string</span></li>
-            <li>fats as <span> string</span></li>
-            <li>minerals as <span> string</span></li>
+            <li>meals_name as <span> Array of String</span></li>
           </ul>
           <li>Headers</li>
           <ul>
@@ -327,19 +354,19 @@
             <pre>
               {
                 "error": false,
-                "message": "Meal added successfully by2",
+                "message": "Meal added successfully by 1",
                 "data": {
-                  "userId": "2",
+                  "userId": "1",
                   "meals": {
-                    "mealId": 5,
-                    "meals_name": "Mie Tek tek",
-                    "calories": "222",
-                    "carbs": "22",
-                    "proteins": "22",
-                    "fats": "22",
-                    "minerals": "22",
-                    "updatedAt": "2023-12-07T03:13:47.130Z",
-                    "createdAt": "2023-12-07T03:13:47.130Z"
+                    "mealId": 2,
+                    "meals_name": "kacang",
+                    "calories": 122,
+                    "carbs": 12,
+                    "proteins": 12,
+                    "fats": 12,
+                    "minerals": 12,
+                    "updatedAt": "2023-12-13T18:48:42.937Z",
+                    "createdAt": "2023-12-13T18:48:42.937Z"
                   }
                 }
               }
