@@ -32,10 +32,10 @@
                   <ul>
                     <li><a href="#register">POST Register</a></li>
                     <li><a href="#login">POST Login</a></li>
-                    <li><a href="#token">GET Token</a></li>
                     <li><a href="#logout">DELETE Logout</a></li>
+                    <li><a href="#profile">GET Get Profile</a></li>
                     <li><a href="#uploadfoto">PUT UploadFoto</a></li>
-                    <li><a href="#update">PUT Update Profile</a></li>
+                    <li><a href="#updateprofile">PUT Update Profile</a></li>
                     <li><a href="#forgotpassword">POST ForgotPassword</a></li>
                     <li><a href="#changepassword">POST ChangePassword</a></li>
                   </ul>
@@ -45,7 +45,8 @@
                   <li><a href="#meal">GET All user Meals</a></li>
                   <li><a href="#addmeal">POST Meals</a></li>
                   <li><a href="#deletemeal">Delete Meals</a></li>
-                  <li><a href="#calculatemeal">GET Calculate Day Meals</a></li>
+                  <li><a href="#dashboard">GET Dashboard</a></li>
+                  <li><a href="#calculatemeal">GET Calculate Meals</a></li>
                 </ul>
                 <!-- <li><a href="">Nutrisions</a></li>
                 <ul>
@@ -66,7 +67,9 @@
         <h1 id="#">Trackmeals API Documentation</h1>
         <div class="desc">API untuk capstone!</div>
         <h1 id="endpoint">Endpoint</h1>
-        <div class="endpoint">http://localhost:5000/api</div>
+        <div class="endpoint">
+          https://backend-dot-capstone-trackmeals-405419.et.r.appspot.com
+        </div>
         <h2 id="user">User</h2>
         <h3 id="register">POST Register</h3>
         <ul>
@@ -128,29 +131,7 @@
             </pre>
           </div>
         </ul>
-        <h3 id="token">GET Token</h3>
-        <ul>
-          <li>URL</li>
-          <ul>
-            <li>/token</li>
-          </ul>
-          <li>Method</li>
-          <ul>
-            <li>GET</li>
-          </ul>
-          <li>Response</li>
-          <div class="response-json">
-            <pre>
-              {
-                "error": false,
-                "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-                eyJ1c2VySWQiOjMsIm5hbWUiOiJKb2huIHJvY2tlciIsImVtYWlsI
-                joiam9obnJvY2tlckBnbWFpbC5jb20iLCJpYXQiOjE3MDE5MTY0MD
-                YsImV4cCI6MTcwMjAwMjgwNn0.NuRcti8LODm38WpLznESo9fQ7E1MJWtQ5LqkgyBiJ3o"
-              }
-            </pre>
-          </div>
-        </ul>
+
         <h3 id="logout">DELETE Logout</h3>
         <ul>
           <li>URL</li>
@@ -170,6 +151,45 @@
             }
            </pre
             >
+          </div>
+        </ul>
+        <h3 id="profile">GET Profile</h3>
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>/profile/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "error": false,
+                "data": {
+                  "userId": 1,
+                  "name": "John hebat",
+                  "age": 22,
+                  "gender": "L",
+                  "email": "johnrocker@gmail.com",
+                  "premium": false,
+                  "profilePic": "https://storage.googleapis.com/profile-image-user-trackmeals/profil-1.png",
+                  "calories": 2650,
+                  "carbs": 430,
+                  "proteins": 65,
+                  "fats": 75,
+                  "minerals": 2500,
+                  "createdAt": "2023-12-18T14:20:27.000Z",
+                  "updatedAt": "2023-12-23T06:29:36.000Z"
+                }
+              }
+            </pre>
           </div>
         </ul>
         <h3 id="uploadfoto">PUT Upload Foto</h3>
@@ -204,7 +224,7 @@
             </pre>
           </div>
         </ul>
-        <h3 id="updateprofile">POST Update Profile</h3>
+        <h3 id="updateprofile">PUT Update Profile</h3>
         <ul>
           <li>URL</li>
           <ul>
@@ -343,7 +363,7 @@
           </ul>
           <li>Request Body</li>
           <ul>
-            <li>meals_name as <span> Array of String</span></li>
+            <li>meals_name as <span> String</span></li>
           </ul>
           <li>Headers</li>
           <ul>
@@ -414,7 +434,9 @@
             </pre>
           </div>
         </ul>
-        <h3 id="calculatemeal">GET Dashboard Nutrisions</h3>
+        <h3 id="dashboard">GET Dashboard</h3>
+        <p>Untuk menghitung berapa nutrisi yang sudah dimakan hari itu juga</p>
+        <br />
         <ul>
           <li>URL</li>
           <ul>
@@ -444,6 +466,41 @@
                 }
               }
             }
+           </pre
+            >
+          </div>
+        </ul>
+        <h3 id="calculatemeal">GET Calculate Meal</h3>
+        <p>
+          Untuk menghitung kurang berapa nutrisi untuk mencukupi kebutuhan
+          seharian
+        </p>
+        <br />
+        <ul>
+          <li>URL</li>
+          <ul>
+            <li>checkdailycalories/:id</li>
+          </ul>
+          <li>Method</li>
+          <ul>
+            <li>GET</li>
+          </ul>
+          <li>Headers</li>
+          <ul>
+            <li>Authorization: Bearer &lt;token&gt;</li>
+          </ul>
+          <li>Response</li>
+          <div class="response-json">
+            <pre>
+              {
+                "data": {
+                  "calories": 2542,
+                  "carbs": 406,
+                  "proteins": 64,
+                  "fats": 74,
+                  "minerals": 2500
+                }
+              }
            </pre
             >
           </div>
